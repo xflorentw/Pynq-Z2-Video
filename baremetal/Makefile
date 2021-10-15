@@ -43,5 +43,6 @@ app:
 	xsct ./build_sw_app.tcl
 
 distclean:
-	rm -rf $(WKSP)/.analytics $(WKSP)/IDE.log $(WKSP)/.metadata $(WKSP)/video_out_pynq_z2_pfm
-	rm -rf $(WKSP)/vid_out_app $(WKSP)/vid_out_app_system $(WKSP)/.Xil
+	rm -rf $(WKSP)/.analytics $(WKSP)/.metadata $(WKSP)/video_out_pynq_z2_pfm
+	rm -rf $(WKSP)/vid_out_app $(WKSP)/vid_out_app_system $(WKSP)/.Xil $(WKSP)/RemoteSystemsTempFiles
+	rm -rf $(WKSP)/vitis_pid* $(WKSP)/*.log
