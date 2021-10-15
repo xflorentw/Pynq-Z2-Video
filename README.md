@@ -1,4 +1,9 @@
-# Pynq-Z2-Video
+# Pynq-Z2-Video (v0.1)
+
+## Requirement
+This version of the design requires:
+* Vivado 2021.1 with the PYNQ-Z2 board file installed
+* Vitis 2021.1
 
 ## Introduction
 
@@ -82,5 +87,8 @@ You should see a Video pattern on the HDMI monitor and the following output on t
 ![Block Design](images/UART_output.jpg)
 
 You can also see the LED0 ON indicating that the AXI4-Stream to Video Out IP is generating an output
+
+## Revision History
+* v0.1 - Initial Release
 
 
