@@ -1,4 +1,4 @@
-# Pynq-Z2-Video (v0.1)
+# Pynq-Z2-Video (v0.2)
 
 ## Requirement
 This version of the design requires:
@@ -89,6 +89,10 @@ You should see a Video pattern on the HDMI monitor and the following output on t
 You can also see the LED0 ON indicating that the AXI4-Stream to Video Out IP is generating an output
 
 ## Revision History
-* v0.1 - Initial Release
+* v0.2 
+	- Connected all the unconnected IP inputs
+	- Added a second Processor System Reset for Video Clock domain	
+* v0.1 
+	- Initial Release
 
 
