@@ -1,4 +1,4 @@
-# Pynq-Z2-Video (v0.2)
+# Pynq-Z2-Video (v0.3)
 
 ## Requirement
 This version of the design requires:
@@ -7,7 +7,7 @@ This version of the design requires:
 
 ## Introduction
 
-This design is a simple design to generate a video output on the HDMI TX connector of the PYNQ-Z2 board with a fixed 420p resolution
+This design is a simple design to generate a video output on the HDMI TX connector of the PYNQ-Z2 board. The output resolution can be switched between multiple resolutions (1280x720@60Hz, 1024x768@60Hz, 800x600@60Hz, 640x480@60Hz)
 
 ## Vivado design
 
@@ -19,15 +19,17 @@ It includes the following IPs
 
 * Processor System Reset: This IP is used to manage the reset signals
 
-* Clocking Wizard IP: This IP is used to generate the videoclock frequency. In this version of the design the frequency is fixed to 74.25MHz which is required required for 720p60 resolution
+* Clocking Wizard IP: This IP is used to generate the videoclock frequency. In this version the default freuqency is 74.25MHz which is required required for 720p60 resolution. This frequency can be changed through the application (depends on the resolution)
 
 * Test Pattern Generator (TPG) IP: This IP is used to generate a pattern. The resolution is controled by the processor. This IP has to be started by the processor.
 
-* Video Timing Controler (VTC) IP: This IP generate the timing signals (HSYNC, VSYNC, HBLANK, VBLANK, Video Active). In  this version of the design, the timing is fixed to 720p60.
+* Video Timing Controler (VTC) IP: This IP generate the timing signals (HSYNC, VSYNC, HBLANK, VBLANK, Video Active). In  this version of the design, the resolution is configured through the application.
 
 * AXI4-Stream to Video Out IP: This IP is used to convert the video stream from AXI4-Stream domain (no video timing) to video out domain
 
 * RGB2DVI: This IP from Digient is used to convert RGB signals to DVI TMDS signals
+
+*AXI GPIO IP: This IP is used to generate signals from the Processing System (Zynq) to the PL. In this version, it is used to control the reset signal for the video path to asssert the reset between each resolution change.
 
 ### Build the Vivado Design
 
@@ -86,9 +88,15 @@ Then right click on the video_out_app_system in the Explorer window in Vitis IDE
 You should see a Video pattern on the HDMI monitor and the following output on the UART terminal (Tera Term)
 ![Block Design](images/UART_output.jpg)
 
-You can also see the LED0 ON indicating that the AXI4-Stream to Video Out IP is generating an output
+You can also see the LED0 ON indicating that the AXI4-Stream to Video Out IP is generating an output.
+
+You can then use a keyboard to change the output resolution.
 
 ## Revision History
+* v0.3
+	- Enabled reconfiguration for VTC and Video Clock (clocking wizard)
+	- Added AXI GPIO to control the reset for the video pipeline
+	- Replaced AXI interconnect with AXI Smartconnect
 * v0.2 
 	- Connected all the unconnected IP inputs
 	- Added a second Processor System Reset for Video Clock domain	
