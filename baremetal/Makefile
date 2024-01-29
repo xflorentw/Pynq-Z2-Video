@@ -37,12 +37,12 @@ WKSP := ./vitis_workspace
 all: pfm app
 
 pfm:
-	xsct ./build_pfm.tcl
+	vitis -s ./build_pfm.py
 
 app:
-	xsct ./build_sw_app.tcl
+	vitis -s ./build_sw_app.py
 
 distclean:
-	rm -rf $(WKSP)/.analytics $(WKSP)/.metadata $(WKSP)/video_out_pynq_z2_pfm
-	rm -rf $(WKSP)/vid_out_app $(WKSP)/vid_out_app_system $(WKSP)/.Xil $(WKSP)/RemoteSystemsTempFiles
-	rm -rf $(WKSP)/vitis_pid* $(WKSP)/*.log
+	rm -rf $(WKSP)
+	mkdir $(WKSP)
+	touch $(WKSP)/.keep

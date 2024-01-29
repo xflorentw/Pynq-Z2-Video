@@ -1,28 +1,28 @@
 /******************************************************************************
 *  @file video_resolutions.c
 *  Author: Florent Werbrouck
-*  Description: Utilities to configure the resolution for Video out design on 
+*  Description: Utilities to configure the resolution for Video out design on
 *  PYNQ-z2
 ******************************************************************************/
 /******************************************************************************
 *
 * Copyright (c) 2021, Florent Werbrouck
 * All rights reserved.
-* 
+*
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-* 
+*
 * 1. Redistributions of source code must retain the above copyright notice, this
 *    list of conditions and the following disclaimer.
-* 
+*
 * 2. Redistributions in binary form must reproduce the above copyright notice,
 *    this list of conditions and the following disclaimer in the documentation
 *    and/or other materials provided with the distribution.
-* 
+*
 * 3. Neither the name of the copyright holder nor the names of its
 *    contributors may be used to endorse or promote products derived from
 *    this software without specific prior written permission.
-* 
+*
 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -138,7 +138,7 @@ int ClkWiz_Set_Output_Clock(UINTPTR ClkWiz_BaseAddr, int resId)
 			return XST_FAILURE;
 			break;
 	}
-	
+
 	// Update the clocking wizard
 	Xil_Out32(ClkWiz_BaseAddr + 0x25C, 0x3);
 
