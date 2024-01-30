@@ -2,8 +2,8 @@
 
 ## Requirement
 This version of the design requires:
-* Vivado 2021.1 with the PYNQ-Z2 board file installed
-* Vitis 2021.1
+* Vivado 2023.2 with the PYNQ-Z2 board file installed
+* Vitis Unified IDE 2023.2
 
 ## Introduction
 
@@ -30,6 +30,13 @@ It includes the following IPs
 * RGB2DVI: This IP from Digient is used to convert RGB signals to DVI TMDS signals
 
 *AXI GPIO IP: This IP is used to generate signals from the Processing System (Zynq) to the PL. In this version, it is used to control the reset signal for the video path to asssert the reset between each resolution change.
+
+### Checkout Submodules
+
+The Vivado design depends on a Git submodule. Checkout the submodule
+```bash
+git submodule update --init
+```
 
 ### Build the Vivado Design
 

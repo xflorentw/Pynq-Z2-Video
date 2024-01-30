@@ -37,6 +37,7 @@
 
 #include <stdio.h>
 #include "xil_printf.h"
+#include "xparameters.h"
 
 #include "video_out_pynq.h"
 
@@ -83,7 +84,7 @@ int main()
 		if(resId != resId_prev)
 		{
 			//Set the output clock for selected resolution
-			ClkWiz_Set_Output_Clock(XPAR_CLK_WIZ_0_BASEADDR, resId);
+			ClkWiz_Set_Output_Clock(XPAR_XCLK_WIZ_0_BASEADDR, resId);
 			
 			//Toogle the reset for the video path
 			XGpio_DiscreteWrite(&XGpioInst, GPIO_RESET_CHANNEL, GPIO_RESET_ON);
@@ -116,7 +117,7 @@ int system_init(XV_tpg* TpgInstPtr, XVtc* VtcInstPtr, XGpio* XGpioInstPtr)
 	int Status;
 	
     // Initialise the TPG
-    Status = XV_tpg_Initialize(TpgInstPtr, XPAR_V_TPG_0_DEVICE_ID);
+    Status = XV_tpg_Initialize(TpgInstPtr, 0);
     if(Status!= XST_SUCCESS)
     {
     	xdbg_printf(XDBG_DEBUG_GENERAL,"TPG configuration failed\r\n");
@@ -124,7 +125,7 @@ int system_init(XV_tpg* TpgInstPtr, XVtc* VtcInstPtr, XGpio* XGpioInstPtr)
     }
 
     // Initialise the VTC
-    XVtc_Config *VtcConfig = XVtc_LookupConfig(XPAR_V_TC_0_DEVICE_ID);
+    XVtc_Config *VtcConfig = XVtc_LookupConfig(0);
     XVtc_CfgInitialize(VtcInstPtr, VtcConfig, VtcConfig->BaseAddress);
     if(Status!= XST_SUCCESS)
     {
@@ -133,7 +134,7 @@ int system_init(XV_tpg* TpgInstPtr, XVtc* VtcInstPtr, XGpio* XGpioInstPtr)
     }
 	
 	/* Initialize the GPIO driver */
-	Status = XGpio_Initialize(XGpioInstPtr, XPAR_GPIO_0_DEVICE_ID);
+	Status = XGpio_Initialize(XGpioInstPtr, 0);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Gpio Initialization Failed\r\n");
 		return XST_FAILURE;

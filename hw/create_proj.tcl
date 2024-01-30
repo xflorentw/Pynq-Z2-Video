@@ -36,10 +36,10 @@
 ###############################################################################
 
 # Check if script is running in correct Vivado version.
-set scripts_vivado_version "2021.1"
+set scripts_vivado_version "2023.2"
 set current_vivado_version [version -short]
 
-if { [string first $current_vivado_version $scripts_vivado_version] == -1 } {
+if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
    puts "The version $current_vivado_version is not supported. Supported versions are $scripts_vivado_version"
    return 1
 }

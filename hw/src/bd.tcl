@@ -46,7 +46,7 @@ variable script_folder
 set script_folder [_tcl::get_script_folder]
 
 # Check if script is running in correct Vivado version.
-set scripts_vivado_version "2021.1"
+set scripts_vivado_version "2023.2.1"
 set current_vivado_version [version -short]
 
 if { [string first $current_vivado_version $scripts_vivado_version] == -1 } {
@@ -142,7 +142,7 @@ digilentinc.com:ip:rgb2dvi:1.4\
 xilinx.com:ip:smartconnect:1.0\
 xilinx.com:ip:v_axi4s_vid_out:4.0\
 xilinx.com:ip:v_tc:6.2\
-xilinx.com:ip:v_tpg:8.1\
+xilinx.com:ip:v_tpg:8.2\
 "
 
    set list_ips_missing ""
@@ -1078,7 +1078,7 @@ Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#UART\
  ] $v_tc_0
 
   # Create instance: v_tpg_0, and set properties
-  set v_tpg_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_tpg:8.1 v_tpg_0 ]
+  set v_tpg_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_tpg:8.2 v_tpg_0 ]
 
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
